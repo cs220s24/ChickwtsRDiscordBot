@@ -1,6 +1,6 @@
 # DiscordBotCallingRfromPython
 
-## Yousuf, (Add your names here) 
+## Yousuf, Saul Sanchez, (Add your names here) 
 
 - Discord Bot
 - All R to plot something provided by user
