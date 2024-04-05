@@ -11,5 +11,6 @@
 
 ### Setup
 
-- ** Create .env file** in bot folder with DISCORD_TOKEN = Bot's token and DISCORD_GUILD = name of the discord guild
-- (On Mac) Go to Apps->Python(3.12)->InstallCertificates.command and ** run it**
+- Create .env file in bot folder with DISCORD_TOKEN = Bot's token and DISCORD_GUILD = name of the discord guild
+- (On Mac) Go to Apps->Python(3.12)->InstallCertificates.command and run it
+- Create virtual environment and install dependencies
