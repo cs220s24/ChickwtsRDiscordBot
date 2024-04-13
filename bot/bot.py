@@ -31,9 +31,9 @@ class MyClient(discord.Client):
         if message.author == self.user:
             return
 
-        # Check for !ggplot command and return that it's under development
-        if message.content.startswith('!ggplot'):
-            await message.channel.send('Check back on the 19th')
+        # Check for user message and displays appropriate response
+        if message.content.startswith('Chickwts list'):
+            await message.channel.send('ggplot boxplot\nggplot histogram\nggplot barplot')
 
 # Create an instance of the client and run it
 client = MyClient(intents=intents)
