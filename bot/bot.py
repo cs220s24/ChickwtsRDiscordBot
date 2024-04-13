@@ -35,7 +35,7 @@ class MyClient(discord.Client):
 
         # Check for user message and displays appropriate response
         if message.content.startswith('!options'):
-            await message.channel.send('These are the commands I can run:\nggplot boxplot\nggplot histogram\nggplot barplot')
+            await message.channel.send('These are the commands I can run:\n!ggplot boxplot\n!ggplot histogram\n!ggplot barplot')
 
 # Create an instance of the client and run it
 client = MyClient(intents=intents)
