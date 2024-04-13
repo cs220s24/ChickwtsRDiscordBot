@@ -20,11 +20,12 @@ class MyClient(discord.Client):
         super().__init__(*args, **kwargs)
 
     async def on_ready(self):
+        print("Hello I am the Chickwts plot bot!\nThese are the available commands:\n!help\nggplot boxplot\nggplot histogram\nggplot barplot\n")
         guild = discord.utils.get(client.guilds, name=GUILD)
         print(
             f'{client.user} is connected to the following guild:\n'
             f'{guild.name}(id: {guild.id})\n'
-	    f'Logged in as {self.user} (ID: {self.user.id})'
+	        f'Logged in as {self.user} (ID: {self.user.id})'
     )
 
     async def on_message(self, message):
@@ -32,8 +33,8 @@ class MyClient(discord.Client):
             return
 
         # Check for user message and displays appropriate response
-        if message.content.startswith('Chickwts list'):
-            await message.channel.send('ggplot boxplot\nggplot histogram\nggplot barplot')
+        if message.content.startswith('!help'):
+            await message.channel.send('These are the commands I can run:\nggplot boxplot\nggplot histogram\nggplot barplot')
 
 # Create an instance of the client and run it
 client = MyClient(intents=intents)
