@@ -1,6 +1,7 @@
 # bot.py
 import os
 import random
+import subprocess
 
 import discord
 from dotenv import load_dotenv
@@ -32,9 +33,20 @@ class MyClient(discord.Client):
             return
 
         # Check for !ggplot command and return that it's under development
-        if message.content.startswith('!ggplot'):
-            await message.channel.send('Check back on the 19th')
+        #if message.content.startswith('!ggplot'):
+        #    await message.channel.send('Check back on the 19th')
 
+	# Command to generate boxplot using R script
+        elif message.content.startswith('!ggplot boxplot'):
+            # Call the R script to generate the plot
+            subprocess.run(['Rscript', 'generateBoxplot.R'], check=True)
+            # Send the generated image to the channel
+            with open('boxplot_chickwts.png', 'rb') as f:
+                picture = discord.File(f)
+                await message.channel.send('Boxplot for the chickwts dataset:', file=picture)
+	    # Remove the PNG file after sending it
+       	    os.remove('boxplot_chickwts.png')
+	
 # Create an instance of the client and run it
 client = MyClient(intents=intents)
 client.run(TOKEN)
