@@ -46,8 +46,17 @@ class MyClient(discord.Client):
             with open('boxplot_chickwts.png', 'rb') as f:
                 picture = discord.File(f)
                 await message.channel.send('Boxplot for the chickwts dataset:', file=picture)
-	    # Remove the PNG file after sending it
-       	    os.remove('boxplot_chickwts.png')
+            # Remove the PNG file after sending it
+            os.remove('boxplot_chickwts.png')
+
+	# Command to generate histogram using R Script
+        elif message.content.startswith('!ggplot histogram'):
+            subprocess.run(['Rscript', 'generateHistogram.R'], check=True)
+            with open('histogram_chickwts.png', 'rb') as f:
+                picture = discord.File(f)
+                await message.channel.send('Histogram for the chickwts dataset:', file=picture)
+            # Remove PNG file after sending it
+            os.remove('histogram_chickwts.png')
 	
 # Create an instance of the client and run it
 client = MyClient(intents=intents)
