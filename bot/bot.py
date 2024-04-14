@@ -22,19 +22,21 @@ class MyClient(discord.Client):
 
     async def on_ready(self):
         guild = discord.utils.get(client.guilds, name=GUILD)
+        channel = self.get_channel(1225311572411285558)  
+        await channel.send("Hello I am the Chickwts plot bot!\nType the following command to see list of plot options:\n!options")
         print(
             f'{client.user} is connected to the following guild:\n'
             f'{guild.name}(id: {guild.id})\n'
-	    f'Logged in as {self.user} (ID: {self.user.id})'
+	        f'Logged in as {self.user} (ID: {self.user.id})'
     )
 
     async def on_message(self, message):
         if message.author == self.user:
             return
 
-        # Check for !ggplot command and return that it's under development
-        #if message.content.startswith('!ggplot'):
-        #    await message.channel.send('Check back on the 19th')
+        # Check for user message and displays appropriate response
+        if message.content.startswith('!options'):
+            await message.channel.send('These are the commands I can run:\n!ggplot boxplot\n!ggplot histogram\n!ggplot barplot')
 
 	# Command to generate boxplot using R script
         elif message.content.startswith('!ggplot boxplot'):
