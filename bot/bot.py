@@ -38,7 +38,7 @@ class MyClient(discord.Client):
         elif message.content.startswith('!info'):
             await message.channel.send('The Chickwts dataset contains 71 observations on the following 2 variables:\n- weight: a numeric vector giving the body weight of the chicks\n- feed: a factor giving the feed type\nThe dataset is used in the examples of the book "Statistical Models in S" by Chambers and Hastie.')
 
-	# Command to generate boxplot using R script
+        # Command to generate boxplot using R script
         elif message.content.startswith('!ggplot boxplot'):
             # Call the R script to generate the plot
             subprocess.run(['Rscript', 'generateBoxplot.R'], check=True)
@@ -46,8 +46,19 @@ class MyClient(discord.Client):
             with open('boxplot_chickwts.png', 'rb') as f:
                 picture = discord.File(f)
                 await message.channel.send('Boxplot for the chickwts dataset:', file=picture)
-	    # Remove the PNG file after sending it
-       	    os.remove('boxplot_chickwts.png')
+            # Remove the PNG file after sending it
+            os.remove('boxplot_chickwts.png')
+        
+        # Command to generate barplot using R script
+        elif message.content.startswith('!ggplot barplot'):
+            # Call the R script to generate the plot
+            subprocess.run(['Rscript', 'generateBarplot.R'], check=True)
+            # Send the generated image to the channel
+            with open('barplot_chickwts.png', 'rb') as f:
+                picture = discord.File(f)
+                await message.channel.send('Barplot for the chickwts dataset:', file=picture)
+            # Remove the PNG file after sending it
+            os.remove('barplot_chickwts.png')
 	
 # Create an instance of the client and run it
 client = MyClient(intents=intents)
