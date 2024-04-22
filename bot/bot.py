@@ -1,6 +1,5 @@
 # bot.py
 import os
-import random
 import subprocess
 
 import discord
