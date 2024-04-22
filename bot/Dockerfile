@@ -2,7 +2,10 @@
 FROM python:3.8-alpine
 
 # Install R and dependencies
-RUN apk add --no-cache R R-dev
+RUN sudo yum install R -y 
+
+# Install R package
+RUN R -e "install.packages('tidyverse', repos='http://cran.rstudio.com/')"
 
 # Verify R install
 RUN R --version
@@ -11,6 +14,9 @@ RUN R --version
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
+#remove all previous .png files 
+RUN rm -f *.png
+
 COPY requirements.txt .
 COPY generateBarplot.R .
 COPY generateHistogram.R .
