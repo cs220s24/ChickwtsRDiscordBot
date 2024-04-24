@@ -22,12 +22,13 @@
 ### Docker Setup
 
 - Ensure .env file is present as in normal setup, located in the bot directory
-- Run "docker-compose up -d" to start the container in detached mode
+- Run "docker-compose up --build -d" to start the container in detached mode and build it
 - Check logs with "docker-compose logs" 
 - Stop and remove the container with "docker-compose down"
 
-### EC2 Instance Setup
-- Run command "sudo yum install -y git" to install git on the ec2 instance
-- Clone the repository, enter git details if prompted
-- Run command "sudo yum install -y R" to install R on the ec2 instance
-- Follow local setup instructions from this point
+### EC2 Instance Docker Setup
+- Run command "sudo yum install -y git" to install git on the ec2 instance and clone the repo
+- Run the command "sh EC2InstanceDocker.sh" to run the script to install and start docker and give user docker access
+- Log out then log back in to your EC2 instance
+- Navigate to the bot directory in the repo and run "docker-compose up --build -d" to start the container and build it
+- Stop and remove the container with "docker-compose down"

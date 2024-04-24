@@ -2,7 +2,11 @@
 FROM python:3.8-alpine
 
 # Install R and dependencies
-RUN apk add --no-cache R R-dev
+RUN apk update
+RUN apk add --no-cache bash fontconfig R R-dev font-terminus font-inconsolata font-dejavu font-noto font-noto-cjk font-awesome font-noto-extra
+
+# Rebuild font cache
+RUN fc-cache -fv
 
 # Verify R install
 RUN R --version
