@@ -38,7 +38,7 @@ class MyClient(discord.Client):
             await message.channel.send('The Chickwts dataset contains 71 observations on the following 2 variables:\n- weight: a numeric vector giving the body weight of the chicks\n- feed: a factor giving the feed type\nThe dataset is used in the examples of the book "Statistical Models in S" by Chambers and Hastie.')
 
         # Command to generate boxplot using R script
-        elif message.content.startswith('!ggplot boxplot'):
+        elif message.content.startswith('!plot boxplot'):
             # Call the R script to generate the plot
             subprocess.run(['Rscript', 'generateBoxplot.R'], check=True)
             # Send the generated image to the channel
@@ -49,7 +49,7 @@ class MyClient(discord.Client):
             os.remove('boxplot_chickwts.png')
 
 	# Command to generate histogram using R Script
-        elif message.content.startswith('!ggplot histogram'):
+        elif message.content.startswith('!plot histogram'):
             subprocess.run(['Rscript', 'generateHistogram.R'], check=True)
             with open('histogram_chickwts.png', 'rb') as f:
                 picture = discord.File(f)
@@ -58,7 +58,7 @@ class MyClient(discord.Client):
             os.remove('histogram_chickwts.png')
         
         # Command to generate barplot using R script
-        elif message.content.startswith('!ggplot barplot'):
+        elif message.content.startswith('!plot barplot'):
             # Call the R script to generate the plot
             subprocess.run(['Rscript', 'generateBarplot.R'], check=True)
             # Send the generated image to the channel
