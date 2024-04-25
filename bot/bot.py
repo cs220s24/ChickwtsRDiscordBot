@@ -21,7 +21,7 @@ class MyClient(discord.Client):
 
     async def on_ready(self):
         guild = discord.utils.get(client.guilds, name=GUILD)
-        channel = self.get_channel(1225311572411285558)  
+        channel = self.get_channel(1232853994175729737)  
         await channel.send("Hello I am the Chickwts plot bot!\nThese commands provide further info:\n- !options: Displays the plot commands I can run\n- !info: Provides informations about the dataset Chickwts")
         f'{client.user} is connected to the following guild:\n'
         f'{guild.name}(id: {guild.id})\n'
