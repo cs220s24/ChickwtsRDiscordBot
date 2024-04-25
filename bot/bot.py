@@ -33,7 +33,7 @@ class MyClient(discord.Client):
 
         # Check for user message and displays appropriate response
         if message.content.startswith('!options'):
-            await message.channel.send('These are the commands I can run:\n- !ggplot boxplot\n- !ggplot histogram\n- !ggplot barplot')
+            await message.channel.send('These are the commands I can run:\n- !plot boxplot\n- !plot histogram\n- !plot barplot')
         elif message.content.startswith('!info'):
             await message.channel.send('The Chickwts dataset contains 71 observations on the following 2 variables:\n- weight: a numeric vector giving the body weight of the chicks\n- feed: a factor giving the feed type\nThe dataset is used in the examples of the book "Statistical Models in S" by Chambers and Hastie.')
 
