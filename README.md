@@ -9,6 +9,9 @@
 - Dockerize
 - Manage Credentials
 
+## System Architecture
+![system diagram](https://raw.githubusercontent.com/cs220s24/ChickwtsRDiscordBot/blob/main/SystemArchitecture.png
+
 ### Local Setup
 
 - Make sure R is installed on your local machine
