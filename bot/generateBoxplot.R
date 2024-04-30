@@ -1,15 +1,9 @@
 # Load chickwts dataset
-if(!require(tidyverse)) {
-  install.packages("tidyverse")
-}
-library(tidyverse)
-
 data("chickwts")
 
 # Generate a boxplot
-chickwts %>%  
-    ggplot(aes(x = feed, y = weight)) +
-    geom_boxplot() +
-    labs(title = "Boxplot of Chicken Weights by Feed Type", x = "Feed Type", y = "Weight")
+png("boxplot_chickwts.png")  # Save the plot as a PNG file
+boxplot(weight ~ feed, data = chickwts, main="Boxplot of Chicken Weights by Feed Type", xlab="Feed Type", ylab="Weight",
+cex.axis = 0.7, cex.names = 0.7)
 dev.off()  # Close the PNG device
 
