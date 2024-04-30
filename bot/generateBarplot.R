@@ -1,18 +1,12 @@
 # Load chickwts dataset
-if(!require(tidyverse)) {
-  install.packages("tidyverse")
-}
-library(tidyverse)
-
 data("chickwts")
 
 # Calculate the counts of each feed type
 
-# Generate a boxplot
-weights = chickwts %>%
-  ggplot(aes(x = feed)) +
-  geom_bar() +
-  labs(title = "Barplot of Chickens Feed Type", x = "Feed Type", y = "Count")
-ggsave("barplot_chickwts.png", plot = weights, device = "png")
+# Set font family to mono
+par(family = "mono")
 
+# Generate a boxplot
+png("barplot_chickwts.png")  # Save the plot as a PNG file
+barplot(feed_counts, main = "Barplot of Chickwts Feed Types", xlab = "Feed Type", ylab = "Count")
 dev.off()  # Close the PNG device
