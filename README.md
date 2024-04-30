@@ -10,7 +10,7 @@
 - Manage Credentials
 
 ## System Architecture
-![system diagram](https://raw.githubusercontent.com/cs220s24/ChickwtsRDiscordBot/blob/main/SystemArchitecture.png
+![system diagram](https://raw.githubusercontent.com/cs220s24/ChickwtsRDiscordBot/blob/main/SystemArchitecture.png)
 
 ### Local Setup
 
